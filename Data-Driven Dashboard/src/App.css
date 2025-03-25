@@ -1,0 +1,22 @@
+#root { 
+  margin: 0 auto;
+  padding: 0;  
+}
+/* /* Hide scrollbar for webkit browsers (Chrome, Safari, etc.) */
+
+::-webkit-scrollbar {
+  display: none; 
+}
+
+
+/* Set height for the body */
+body {
+  /* Set the height to 100% of the viewport height */
+ overflow: auto !important;
+ /* Hide scrollbar */
+ position: fixed;
+ width: 100%;
+}
+ 
+
+ 
