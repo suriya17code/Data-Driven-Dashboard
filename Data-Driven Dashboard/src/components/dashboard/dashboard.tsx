@@ -4,21 +4,9 @@ import HighchartsReact from 'highcharts-react-official';
 import * as thunk from "../../redux/thunk"
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 // Sample data
-interface DashboardData {
-  totalUsers: number;
-  activeUsers: number;
-  sales: number;
-  growth: number;
-}
 
 const Dashboard  = () => {
-  // Sample data - in a real app this would come from an API
-  // const data :DashboardData={
-  //   totalUsers: 500,
-  //   activeUsers: 120,
-  //   sales: 10000,
-  //   growth: 10
-  // }
+  
 const data = useAppSelector((state)=>state.dashboard.dashboardDetails?.data)
   // Filter states
   const [timeRange, setTimeRange] = useState<string>('month');
