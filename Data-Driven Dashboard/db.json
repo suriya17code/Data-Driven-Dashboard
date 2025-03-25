@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "active": false
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "date": "2023-10-01",
+      "amount": 1200
+    },
+    {
+      "id": 2,
+      "date": "2023-10-02",
+      "amount": 800
+    }
+  ],
+  "metrics": {
+    "totalUsers": 500,
+    "activeUsers": 120,
+    "sales": 10000,
+    "growth": 10
+  },
+  "onBoarding": [
+    {
+      "fullName": "suriya A",
+      "role": "Admin",
+      "industry": "Retail",
+      "onboardingCompleted": true
+    },
+    {
+      "id": "dac7",
+      "fullname": "suriya A",
+      "role": "User",
+      "industry": "Technology"
+    },
+    {
+      "id": "d241",
+      "fullname": "the rock",
+      "role": "Admin",
+      "industry": "Technology"
+    },
+    {
+      "id": "7b71",
+      "fullname": "user nameacbha",
+      "role": "Admin",
+      "industry": "Retail",
+      "onboardingCompleted": true
+    },
+    {
+      "id": "d06b",
+      "fullname": "user name",
+      "role": "Admin",
+      "industry": "Retail",
+      "onboardingCompleted": true
+    },
+    {
+      "id": "4185",
+      "fullname": "new user",
+      "role": "Admin",
+      "industry": "Technology"
+    },
+    {
+      "id": "898c",
+      "fullname": "hjbhjbhyjb",
+      "role": "Admin",
+      "industry": "Technology"
+    },
+    {
+      "id": "efd1",
+      "fullname": "hjbhjbhyjb",
+      "role": "Admin",
+      "industry": "Technology"
+    },
+    {
+      "id": "eeac",
+      "fullname": "qwerty",
+      "role": "User",
+      "industry": "Healthcare"
+    },
+    {
+      "id": "98e9",
+      "fullname": "dkn kjdgvb",
+      "role": "Admin",
+      "industry": "Finance"
+    },
+    {
+      "id": "4163",
+      "fullname": "zxcvb",
+      "role": "Admin",
+      "industry": "Finance"
+    }
+  ],
+  "dashboardData": {
+    "totalUsers": 500,
+    "activeUsers": 120,
+    "sales": 10000,
+    "growth": 10
+  },
+  "taskList": [
+    {
+      "requestId": "mFonEvCM41gXG6elsgTdH",
+      "signal": {},
+      "id": "FIX-541"
+    },
+    {
+      "id": "UPD-542",
+      "title": "Update documentation",
+      "status": "Completed"
+    },
+    {
+      "id": "TES-653",
+      "title": "Test API endpoints",
+      "status": "InProgress"
+    }
+  ]
+}

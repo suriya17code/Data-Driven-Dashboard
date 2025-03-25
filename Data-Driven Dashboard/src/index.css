@@ -1,0 +1,14 @@
+ 
+@import "tailwindcss";
+ 
+
+body {
+  margin: 0; 
+} 
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.custom-scrollbar {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
