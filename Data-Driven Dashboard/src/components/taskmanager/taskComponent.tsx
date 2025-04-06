@@ -2,21 +2,16 @@ import   { useEffect, useState } from 'react';
 import InputForm from '../common/inputform';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import * as thunk from "../../redux/thunk"
-import { resetSavedTask } from '../../redux/taskManager/taskSlice';
- 
 
 const TaskManager = () => {
   const [tasks, setTasks] = useState<any>([]);
   
   const [searchQuery, setSearchQuery] = useState<string>('');
   const gettasks=useAppSelector((state)=>state.task.getTasks?.data)
-  
-    // const editdata=useAppSelector((state)=>state.task.savedTask)
+   
     
-    const updtaedtask=useAppSelector((state)=>state.task.updatedtask)
-  // const savedTask= useAppSelector((state)=>state.task)
-  const [modelStatus,setModelStatus] = useState<any>(false)
-  const [newdata,setNewdata] = useState<any>({})
+    // const updtaedtask=useAppSelector((state)=>state.task.updatedtask) 
+  const [modelStatus,setModelStatus] = useState<any>(false) 
   const dispatch = useAppDispatch()
   const getStatusColor = (status: string): string => {
     switch (status) {
@@ -35,6 +30,8 @@ const TaskManager = () => {
   }
 
   const addTask = () => {
+    dispatch(thunk.saveEditTask({}))
+    dispatch(thunk.editmode(false))
     setModelStatus(true)  
   };
   
@@ -47,66 +44,32 @@ const TaskManager = () => {
     task?.title?.toLowerCase()?.includes(searchQuery?.toLowerCase())
   );
   
-  const hangleCollectData=(data:any)=>{
-    setNewdata(data) 
-  }
+ 
   const handleEdit = (data:any)=>{
     // its goint to setpreious existing data
     dispatch(thunk.saveEditTask(data))
+    dispatch(thunk.editmode(true))
     setModelStatus(true) 
   }
 
-  useEffect(()=>{ 
-    
-     setTasks([...tasks, newdata]); 
-    //  const data :any={}
-    //  console.log('newdata',newdata,newdata?.id);
-    //  data.title =newdata.title
-    //  data.status = newdata.status
-    // dispatch(thunk.TaskUpdate(editdata?.id,data))
-    dispatch(resetSavedTask())
-  },[newdata])
-  // Update your useEffect for handling newdata
-// useEffect(() => { 
-//   if (newdata && Object.keys(newdata).length > 0) {
-//     if (editdata?.id) {
-//       // Handle update for existing task
-//       const updateData:any = { 
-//         status: newdata.status
-//       };
-//       dispatch(thunk.TaskUpdate(editdata.id, updateData));
-//     } else {
-//       // Handle creation of new task
-//       // dispatch(thunk.TaskCreate(newdata));
-//       console.log('post');
-      
-//     }
-    
-//     // Refresh task list
-//     dispatch(thunk.gettasklist());
-//     dispatch(resetSavedTask());
-//     setModelStatus(false);
-//   }
-// }, [newdata]);
 
-// Remove this line from your useEffect
-// setTasks([...tasks, newdata]); 
+ 
 
-useEffect(()=>{
-dispatch(thunk.gettasklist())
-console.log('updtaedtask',updtaedtask);
-
-},[])
 useEffect(() => {
   console.log("Fetched tasks:", gettasks);
   setTasks(Array.isArray(gettasks) ? gettasks : []);
 }, [gettasks]);
-
+useEffect(()=>{
+  dispatch(thunk.gettasklist())
+  // console.log('updtaedtask',updtaedtask);
+  
+  },[])
 
   return (
     <div className='container mx-auto p-4 max-w-3xl h-[550px]'>
       <div className="flex justify-between items-center mb-4">
         <button 
+        type='button'
           className=" cursor-pointer bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
           onClick={addTask}
         >
@@ -162,19 +125,7 @@ useEffect(() => {
         </table>
       </div>
       
-      {/* Modal for adding new task - simplified for this example */}
-      {/* <div className="mt-4">
-        <input
-          type="text"
-          placeholder="New task title"
-          className="px-4 py-2 border rounded-md mr-2"
-          value={newTaskTitle}
-          onChange={(e) => setNewTaskTitle(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && addTask()}
-        />
-      </div>
-       */}
-     {modelStatus  &&  <InputForm handleClose={handleClose} hangleCollectData={hangleCollectData} /> }
+     {modelStatus  &&  <InputForm handleClose={handleClose} /> }
     </div>
     </div>
   );

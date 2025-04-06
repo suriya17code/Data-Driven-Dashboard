@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {  deletetask, tasklist, updateTask } from "../../services/auth.service";
+import {  addTask, deletetask, tasklist, updateTask } from "../../services/auth.service";
 
 export const saveEditTask =createAsyncThunk(
     "task/editmode",
@@ -12,8 +12,20 @@ export const gettasklist =createAsyncThunk(
         const response= await tasklist();
         return response
       } catch (error) {
-        console.log("error",error);
+        console.error("error",error);
         
+      }
+    }
+  )
+  export const TaskPost =createAsyncThunk(
+    "auth/TaskPost",
+    async(data:any)=>{
+      try {
+        const response= await addTask(data);
+        console.log('thunkresponse',response);
+        return response
+      } catch (error) {
+        console.error("error",error);
       }
     }
   )
@@ -24,21 +36,25 @@ export const gettasklist =createAsyncThunk(
         const response= await deletetask(data);
         return response
       } catch (error) {
-        console.log("error",error);
+        console.error("error",error);
         
       }
     }
   )
   export const TaskUpdate =createAsyncThunk(
     "auth/TaskUpdate",
-    async(id:any,data:any)=>{
-      try {
-        const response= await updateTask(id,data);
-        console.log('thunkresponse',response);
+    async(  payload: { id: string; title: string; status: string },)=>{
+      try { 
+        const { id } = payload;
+        const response= await updateTask(id,payload); 
         return response
       } catch (error) {
-        console.log("error",error);
+        console.error("error",error);
         
       }
     }
+  )
+  export const editmode =createAsyncThunk(
+    "auth/editmode",
+    async(data:any)=>data
   )

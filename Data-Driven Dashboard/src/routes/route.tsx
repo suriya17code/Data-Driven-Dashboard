@@ -4,6 +4,7 @@ import { PrivateRoute } from "./privateRoute";
 import Dashboard from "../pages/dashboard/dashboard";
 import TaskManager from "../pages/taskmanager/taskmanager"; 
 import OnboardingPage from "../pages/onboarding/onboarding";
+import Extra from "../pages/taskmanager/extra";
 export const RouterApp=()=>{
 
 
@@ -16,6 +17,7 @@ export const RouterApp=()=>{
         {path:"/dashboard",element:<Dashboard/>},
         {path:"/task",element:<TaskManager/>},
         {path:"/Onboarding",element:<OnboardingPage/>},
+        {path:"/extra",element:<Extra/>},
   
       ]
   }
