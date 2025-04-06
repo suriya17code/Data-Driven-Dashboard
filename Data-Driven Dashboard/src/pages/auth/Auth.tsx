@@ -14,8 +14,6 @@ interface AuthFormData {
 }
 
 const Login: React.FC = () => {
-    // const loginData =useAppSelector((state)=>state.auth.userId);
-    // const signupData =useAppSelector((state)=>state.auth.token);
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState<AuthFormData>({
     email: '',
@@ -50,132 +48,8 @@ const Login: React.FC = () => {
       })
   }
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setError(null);
-  //   setLoading(true);
-  //   console.log('formData',formData);
-  //   try {
-  //       isLogin? dispatch(thunk.loginPost(JSON.stringify(formData))):dispatch(thunk.signupPost(JSON.stringify(formData)))
-  //   } catch (error) {
-  //       console.error("form error",error);
-  //   }
-  //    sessionStorage.setItem("Access",formData.password)
-  //   navigate('/dashboard')
-  //    dispatch(setActiveMenu('dashboard')); 
-  //    dispatch(setHeaderContent('Dashboard'));
-  //   // try {
-  //   //   const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
-  //   //   const response = await fetch(endpoint, {
-  //   //     method: 'POST',
-  //   //     headers: {
-  //   //       'Content-Type': 'application/json',
-  //   //     },
-  //   //     body: JSON.stringify(formData),
-  //   //   });
 
-  //   //   const data = await response.json();
 
-  //   //   if (!response.ok) {
-  //   //     throw new Error(data.message || 'Authentication failed');
-  //   //   }
-
-  //   //   // Store token in Redux and localStorage
-  //   // //   dispatch({
-  //   // //     type: 'auth/setCredentials',
-  //   // //     payload: {
-  //   // //       userId: data.userId,
-  //   // //       token: data.token,
-  //   // //     },
-  //   // //   });
-      
-  //   //   localStorage.setItem('token', data.token);
-      
-  //   //   // Redirect to onboarding for new users or dashboard for returning users
-  //   //   if (!isLogin) {
-  //   //     // navigate('/onboarding');
-  //   //   } else {
-  //   //     // Check if user has completed onboarding
-  //   //     const profileResponse = await fetch('/api/auth/profile', {
-  //   //       headers: {
-  //   //         'Authorization': `Bearer ${data.token}`
-  //   //       }
-  //   //     });
-        
-  //   //     const profileData = await profileResponse.json();
-        
-  //   //     if (profileData.onboardingCompleted) {
-  //   //     //   navigate('/dashboard');
-  //   //     } else {
-  //   //     //   navigate('/onboarding');
-  //   //     }
-  //   //   }
-
-  //   // } catch (err) {
-  //   //   setError(err instanceof Error ? err.message : 'An error occurred');
-  //   // } finally {
-  //   //   setLoading(false);
-  //   // }
-  // };
-//   { "name": "John", "email": "john@example.com", "password": "123456" }
-                  // { "email": "john@example.com", "password": "123456" }
-    // useEffect(()=>{
-    //     console.log("logindata",loginData);
-    //     console.log('signupdat',signupData); 
-    //     const sample = async () => {
-    //         try {
-    //           const response = await fetch('http://localhost:5173/api/tasks');
-    //           console.log('response',response);
-              
-    //           if (!response.ok) {
-    //             console.log(response);
-    //             throw new Error(`HTTP error! Status: ${response}`);
-    //           }
-    //           const formattedData = await response.json();
-    //           console.log('formattedData', formattedData);
-    //         } catch (error) {
-    //           console.error('Fetch error:', error);
-    //         }
-    //         try {
-    //             const response = await fetch('http://localhost:5173/api/analytics');
-    //             console.log('response',response);
-                
-    //             if (!response.ok) {
-    //               console.log(response);
-    //               throw new Error(`HTTP error! Status: ${response}`);
-    //             }
-    //             const formattedData = await response.json();
-    //             console.log('formattedData', formattedData);
-    //           } catch (error) {
-    //             console.error('Fetch error:', error);
-    //           }
-    //           try {
-    //             const response = await fetch('http://localhost:5173/api/auth/signup', {
-    //               method: 'POST', // Specify the request method
-    //               headers: {
-    //                 'Content-Type': 'application/json', // Set the content type to JSON
-    //                 // Include any additional headers as needed
-    //               },
-    //               body: JSON.stringify({ "name": "John", "email": "john@example.com", "password": "123456" }),
-    //             });
-              
-    //             // Check if the response status indicates success
-    //             if (!response.ok) {
-    //               throw new Error(`HTTP error! Status: ${response.status}`);
-    //             }
-              
-    //             // Parse the JSON response
-    //             const data = await response.json();
-    //             console.log('Response data:', data);
-    //           } catch (error) {
-    //             console.error('Fetch error:', error);
-    //           }
-              
-    //       };
-          
-    //       sample();
-          
-    // },[ ])
 
 
 const handleRegister=async(e:any)=>{

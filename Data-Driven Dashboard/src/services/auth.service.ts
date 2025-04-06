@@ -22,3 +22,6 @@ export const deletetask=(taskId:any)=>{
 export const updateTask=(taskId:any,data:any)=>{
     return apiPut(`${TASKLIST}/${taskId}`,data)
 }
+export const addTask=(data:any)=>{
+    return apiPost(TASKLIST,data)
+}

@@ -8,7 +8,7 @@ export const getdashboard =createAsyncThunk(
         const response= await dashboard();
         return response
       } catch (error) {
-        console.log("error",error);
+        console.error("error",error);
         
       }
     }

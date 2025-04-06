@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as thunk from "../thunk"
 interface initialState{
     savedTask:any
+    editstatus:any
     loading:boolean,
     getTasks:any
     error:any,
@@ -9,6 +10,7 @@ interface initialState{
 }
 const initialState:initialState={
     savedTask:{},
+    editstatus:false,
     loading:false,
     updatedtask:null,
     getTasks:[],
@@ -25,6 +27,9 @@ const task=createSlice({
     extraReducers:(builder) =>{
         builder.addCase(thunk.saveEditTask.fulfilled,((state:any,action:any)=>{
             state.savedTask=action.payload 
+        }))
+        builder.addCase(thunk.editmode.fulfilled,((state:any,action:any)=>{
+            state.editstatus=action.payload 
         }))
         builder.addCase(thunk.gettasklist.fulfilled,((state:any,action:any)=>{
             state.getTasks=action.payload 

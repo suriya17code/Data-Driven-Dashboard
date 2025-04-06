@@ -17,7 +17,7 @@ export const onBoarding =createAsyncThunk(
       const response= await onboard(data);
       return response
     } catch (error) {
-      console.log("error",error);
+      console.error("error",error);
       
     }
   }
